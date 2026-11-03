@@ -893,21 +893,23 @@ async function handleTaskChange(event) {
   }
 }
 
+function renderSnapshotMode() {
+  const snapshot = window.STARMEMORY_DASHBOARD_DATA;
+  if (!snapshot) return false;
+  state.data = snapshot;
+  setConnection('offline');
+  connectionText.textContent = '只读快照模式';
+  updateSidebarMeta();
+  renderView();
+  showToast('当前为只读快照；保存与删除操作需启动本地服务。');
+  return true;
+}
+
 async function bootstrap() {
   setConnection('loading');
   viewRoot.innerHTML = '<div class="loading-card"><span class="loading-orbit"></span><div><strong>正在连接本地看板</strong><p>127.0.0.1:4173 · data/dashboard.json</p></div></div>';
-  if (location.protocol === 'file:') {
-    const snapshot = window.STARMEMORY_DASHBOARD_DATA;
-    if (!snapshot) {
-      showError(new Error('未找到只读数据快照。请启动本地 Node 服务后再访问。'));
-      return;
-    }
-    state.data = snapshot;
-    setConnection('offline');
-    connectionText.textContent = '只读快照模式';
-    updateSidebarMeta();
-    renderView();
-    showToast('当前为只读快照；保存与删除操作需启动本地服务。');
+  if (location.protocol === 'file:' || location.hostname.endsWith('.github.io')) {
+    if (!renderSnapshotMode()) showError(new Error('未找到只读数据快照。请启动本地 Node 服务后再访问。'));
     return;
   }
   try {
@@ -915,7 +917,7 @@ async function bootstrap() {
     setConnection('online');
     await refreshData();
   } catch (error) {
-    showError(error);
+    if (!renderSnapshotMode()) showError(error);
   }
 }
 

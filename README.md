@@ -4,7 +4,13 @@ StarMemory 星念 Studio 的独立本地运营工作台。仓库只包含工作�
 
 ![StarMemory 工作台预览](dashboard-preview.png)
 
-## 随时打开
+## 在线打开
+
+GitHub Pages：<https://09878999.github.io/xingyuan/>
+
+在线版本使用只读数据快照；需要保存、删除或审核流转时，请使用下方本地服务。
+
+## 本地打开
 
 需要 Node.js 20+。
 
