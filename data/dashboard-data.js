@@ -1,0 +1,470 @@
+'use strict';
+window.STARMEMORY_DASHBOARD_DATA = {
+  "meta": {
+    "project": "StarMemory / 星念 Studio",
+    "version": "1.0.0",
+    "updatedAt": "2026-11-03T06:02:47.099Z",
+    "dataPolicy": "只保存真实本地数据；未发生的数据为0，缺失数据为空。禁止伪造发布、互动、咨询和订单。"
+  },
+  "notes": [
+    {
+      "id": "N01",
+      "title": "我把演唱会那晚，做成了一张海报",
+      "plannedDate": "2026-11-03",
+      "status": "approved",
+      "productId": "concert-collage",
+      "pillar": "记忆整理 / 产品样稿",
+      "coverUrl": "/content/covers/01-concert-night-card/cover.png",
+      "file": "content/drafts/01-concert-night-card.md",
+      "titleOptions": [
+        "我把演唱会那晚，做成了一张海报",
+        "散场后，照片不该只躺在相册里",
+        "一张海报，怎么装下整场演唱会"
+      ],
+      "statusChangedAt": "2026-11-03T05:49:49.617Z"
+    },
+    {
+      "id": "N02",
+      "title": "票根别压箱底，试试这3种收藏法",
+      "plannedDate": "2026-11-05",
+      "status": "review_pending",
+      "productId": "fan-journal-template",
+      "pillar": "教程 / 票根场景",
+      "coverUrl": "/content/images/poster-03-ticket-stub.png",
+      "file": "content/drafts/02-ticket-stub-storage.md",
+      "titleOptions": [
+        "票根别压箱底，试试这3种收藏法",
+        "票根最值得留下的，不只是座位号",
+        "追星票根怎么保存才有仪式感"
+      ]
+    },
+    {
+      "id": "N03",
+      "title": "把10年追星，做成一条星轨",
+      "plannedDate": "2026-11-06",
+      "status": "review_pending",
+      "productId": "birthday-poster",
+      "pillar": "记忆整理 / 时间线",
+      "coverUrl": "/content/images/poster-05-anniversary-timeline.png",
+      "file": "content/drafts/03-fandom-timeline.md",
+      "titleOptions": [
+        "把10年追星，做成一条星轨",
+        "追星时间线怎么排才不流水账",
+        "一张海报，装下这些年的喜欢"
+      ]
+    },
+    {
+      "id": "N04",
+      "title": "爱豆生日，不想再发撞款九宫格",
+      "plannedDate": "2026-11-07",
+      "status": "review_pending",
+      "productId": "birthday-poster",
+      "pillar": "生日场景 / 产品样稿",
+      "coverUrl": "/content/images/poster-01-birthday-orbit.png",
+      "file": "content/drafts/04-birthday-no-template.md",
+      "titleOptions": [
+        "爱豆生日，不想再发撞款九宫格",
+        "生日海报不俗气的3个做法",
+        "不用真人图，也能做生日纪念"
+      ]
+    },
+    {
+      "id": "N05",
+      "title": "演唱会结束后第7天，我还在戒断",
+      "plannedDate": "2026-11-09",
+      "status": "review_pending",
+      "productId": "concert-collage",
+      "pillar": "情绪共鸣 / 记忆整理",
+      "coverUrl": "/content/images/poster-06-afterglow-quote.png",
+      "file": "content/drafts/05-concert-withdrawal.md",
+      "titleOptions": [
+        "演唱会结束后第7天，我还在戒断",
+        "散场之后，怎么把喜欢留下来",
+        "给演唱会后的自己，一张纪念卡"
+      ]
+    },
+    {
+      "id": "N06",
+      "title": "AI做完还不够：海报还要改什么",
+      "plannedDate": "2026-11-11",
+      "status": "review_pending",
+      "productId": "concert-collage",
+      "pillar": "过程与信任 / AI 透明",
+      "coverUrl": "/content/images/poster-02-concert-collage.png",
+      "file": "content/drafts/06-ai-process.md",
+      "titleOptions": [
+        "AI做完还不够：海报还要改什么",
+        "AI做追星海报，为什么还要人工",
+        "一张定制海报的5个检查点"
+      ]
+    },
+    {
+      "id": "N07",
+      "title": "追星手账不会排版？记住这4个区块",
+      "plannedDate": "2026-11-12",
+      "status": "review_pending",
+      "productId": "fan-journal-template",
+      "pillar": "教程 / 手账模板",
+      "coverUrl": "/content/images/poster-04-journal-grid.png",
+      "file": "content/drafts/07-fan-journal-layout.md",
+      "titleOptions": [
+        "追星手账不会排版？记住这4个区块",
+        "票根页怎么排才不乱",
+        "5分钟完成一页追星手账"
+      ]
+    },
+    {
+      "id": "N08",
+      "title": "9张演唱会照片，怎么拼才不挤",
+      "plannedDate": "2026-11-13",
+      "status": "approved",
+      "productId": "concert-collage",
+      "pillar": "教程 / 风格对比",
+      "coverUrl": "/content/images/poster-02-concert-collage.png",
+      "file": "content/drafts/08-concert-collage.md",
+      "titleOptions": [
+        "9张演唱会照片，怎么拼才不挤",
+        "照片太多？先选1张主角",
+        "不露脸的演唱会拼贴怎么做"
+      ],
+      "statusChangedAt": "2026-11-03T06:02:47.099Z"
+    },
+    {
+      "id": "N09",
+      "title": "送同担的礼物，不要只买现成周边",
+      "plannedDate": "2026-11-15",
+      "status": "review_pending",
+      "productId": "birthday-poster",
+      "pillar": "礼物场景 / 产品验证",
+      "coverUrl": "/content/images/poster-01-birthday-orbit.png",
+      "file": "content/drafts/09-gift-for-fan-friend.md",
+      "titleOptions": [
+        "送同担的礼物，不要只买现成周边",
+        "同担生日送什么，才有你们的故事",
+        "一份预算有限的追星礼物清单"
+      ]
+    },
+    {
+      "id": "N10",
+      "title": "定制追星海报前，先问这5个问题",
+      "plannedDate": "2026-11-17",
+      "status": "review_pending",
+      "productId": "concert-collage",
+      "pillar": "信任 / 产品教育",
+      "coverUrl": "/content/images/poster-03-ticket-stub.png",
+      "file": "content/drafts/10-custom-before-questions.md",
+      "titleOptions": [
+        "定制追星海报前，先问这5个问题",
+        "照片授权怎么确认",
+        "定制海报要准备什么"
+      ]
+    },
+    {
+      "id": "N11",
+      "title": "只用票根，也能做纪念海报吗",
+      "plannedDate": "2026-11-18",
+      "status": "idea",
+      "productId": "concert-collage",
+      "pillar": "FAQ / 票根",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "只用票根，也能做纪念海报吗",
+        "没有现场照片怎么做",
+        "票根上的哪些信息要保留"
+      ]
+    },
+    {
+      "id": "N12",
+      "title": "同一组素材，三种风格怎么选",
+      "plannedDate": "2026-11-20",
+      "status": "idea",
+      "productId": "concert-collage",
+      "pillar": "审美 / 互动",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "同一组素材，三种风格怎么选",
+        "星图风 vs 票根风",
+        "你会选深色还是浅色"
+      ]
+    },
+    {
+      "id": "N13",
+      "title": "应援色怎么用才不土",
+      "plannedDate": "2026-11-21",
+      "status": "idea",
+      "productId": "birthday-poster",
+      "pillar": "教程 / 配色",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "应援色怎么用才不土",
+        "深色海报怎么加亮",
+        "生日海报配色公式"
+      ]
+    },
+    {
+      "id": "N14",
+      "title": "免费手账四区块模板：5分钟一页",
+      "plannedDate": "2026-11-23",
+      "status": "idea",
+      "productId": "fan-journal-template",
+      "pillar": "免费模板 / 转化",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "免费手账四区块模板：5分钟一页",
+        "无PS也能做的手账页",
+        "手账模板怎么打印"
+      ]
+    },
+    {
+      "id": "N15",
+      "title": "一张海报从选片到交付，我检查了什么",
+      "plannedDate": "2026-11-24",
+      "status": "idea",
+      "productId": "concert-collage",
+      "pillar": "过程 / 信任",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "一张海报从选片到交付，我检查了什么",
+        "48小时交付流程",
+        "AI标识放在哪里"
+      ]
+    },
+    {
+      "id": "N16",
+      "title": "同担生日礼物：一张数字纪念卡",
+      "plannedDate": "2026-11-25",
+      "status": "idea",
+      "productId": "birthday-poster",
+      "pillar": "礼物 / 产品",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "同担生日礼物：一张数字纪念卡",
+        "生日倒计时7天怎么发",
+        "不露脸生日海报"
+      ]
+    },
+    {
+      "id": "N17",
+      "title": "模板和定制到底差在哪？",
+      "plannedDate": "2026-11-27",
+      "status": "idea",
+      "productId": "fan-journal-template",
+      "pillar": "产品对比",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "模板和定制到底差在哪",
+        "什么时候适合自己DIY",
+        "什么时候值得找人做"
+      ]
+    },
+    {
+      "id": "N18",
+      "title": "30天真实复盘：评论教会我的3件事",
+      "plannedDate": "2026-11-29",
+      "status": "idea",
+      "productId": "all",
+      "pillar": "复盘 / 真实数据",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "30天真实复盘：评论教会我的3件事",
+        "哪种咨询最多",
+        "哪个产品先暂停"
+      ]
+    },
+    {
+      "id": "N19",
+      "title": "同一场演唱会，三种回忆拼贴",
+      "plannedDate": "2026-12-01",
+      "status": "idea",
+      "productId": "concert-collage",
+      "pillar": "作品展示",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "同一场演唱会，三种回忆拼贴",
+        "照片多和照片少怎么排",
+        "回忆拼贴的三种结构"
+      ]
+    },
+    {
+      "id": "N20",
+      "title": "下个月你们更想看哪种纪念？",
+      "plannedDate": "2026-12-03",
+      "status": "idea",
+      "productId": "all",
+      "pillar": "互动 / 产品投票",
+      "coverUrl": "",
+      "file": null,
+      "titleOptions": [
+        "下个月你们更想看哪种纪念",
+        "生日、拼贴还是手账",
+        "还想解决什么排版问题"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T01",
+      "week": "2026-W45",
+      "title": "审核 N01–N05 的标题、正文与封面",
+      "owner": "人工审核",
+      "due": "2026-11-04",
+      "priority": "high",
+      "status": "todo"
+    },
+    {
+      "id": "T02",
+      "week": "2026-W45",
+      "title": "审核 N06–N10 的标题、正文与封面",
+      "owner": "人工审核",
+      "due": "2026-11-05",
+      "priority": "high",
+      "status": "todo"
+    },
+    {
+      "id": "T03",
+      "week": "2026-W45",
+      "title": "确认账号名、简介与头像",
+      "owner": "账号负责人",
+      "due": "2026-11-04",
+      "priority": "high",
+      "status": "todo",
+      "completedAt": null
+    },
+    {
+      "id": "T04",
+      "week": "2026-W45",
+      "title": "核对 AI 标识、肖像与素材授权边界",
+      "owner": "内容审核",
+      "due": "2026-11-06",
+      "priority": "high",
+      "status": "todo"
+    },
+    {
+      "id": "T05",
+      "week": "2026-W45",
+      "title": "完成首次人工发布并录入真实数据",
+      "owner": "账号负责人",
+      "due": "2026-11-04",
+      "priority": "critical",
+      "status": "todo"
+    },
+    {
+      "id": "T06",
+      "week": "2026-W45",
+      "title": "完成 W45 冷启动基线复盘",
+      "owner": "数据分析",
+      "due": "2026-11-03",
+      "priority": "medium",
+      "status": "done"
+    }
+  ],
+  "artworks": [
+    {
+      "id": "A01",
+      "title": "生日星轨",
+      "type": "生日纪念海报",
+      "file": "poster-01-birthday-orbit.png",
+      "url": "/content/images/poster-01-birthday-orbit.png"
+    },
+    {
+      "id": "A02",
+      "title": "演唱会回忆拼贴",
+      "type": "演唱会拼贴",
+      "file": "poster-02-concert-collage.png",
+      "url": "/content/images/poster-02-concert-collage.png"
+    },
+    {
+      "id": "A03",
+      "title": "票根归档",
+      "type": "票根视觉",
+      "file": "poster-03-ticket-stub.png",
+      "url": "/content/images/poster-03-ticket-stub.png"
+    },
+    {
+      "id": "A04",
+      "title": "手账四区块",
+      "type": "手账模板",
+      "file": "poster-04-journal-grid.png",
+      "url": "/content/images/poster-04-journal-grid.png"
+    },
+    {
+      "id": "A05",
+      "title": "纪念时间线",
+      "type": "追星周年",
+      "file": "poster-05-anniversary-timeline.png",
+      "url": "/content/images/poster-05-anniversary-timeline.png"
+    },
+    {
+      "id": "A06",
+      "title": "演唱会戒断",
+      "type": "情绪纪念卡",
+      "file": "poster-06-afterglow-quote.png",
+      "url": "/content/images/poster-06-afterglow-quote.png"
+    }
+  ],
+  "products": [
+    {
+      "id": "birthday-poster",
+      "name": "生日纪念海报",
+      "status": "sample_ready",
+      "description": "星轨、票根、时间线与生日卡方向的原创数字纪念海报。",
+      "launchTestPriceCny": 19.9,
+      "standardTestPriceCny": 39.9,
+      "estimatedMinutes": 75,
+      "estimatedCostCny": 26.5,
+      "inquiries": 0,
+      "quotes": 0,
+      "orders": 0,
+      "userFeedback": [],
+      "sample": "/content/images/poster-01-birthday-orbit.png"
+    },
+    {
+      "id": "concert-collage",
+      "name": "演唱会回忆拼贴",
+      "status": "sample_ready",
+      "description": "用授权照片、票根与歌单完成 1+3+5 结构的演唱会回忆拼贴。",
+      "launchTestPriceCny": 29.9,
+      "standardTestPriceCny": 49.9,
+      "estimatedMinutes": 105,
+      "estimatedCostCny": 36.5,
+      "inquiries": 0,
+      "quotes": 0,
+      "orders": 0,
+      "userFeedback": [],
+      "sample": "/content/images/poster-02-concert-collage.png"
+    },
+    {
+      "id": "fan-journal-template",
+      "name": "粉丝手账模板",
+      "status": "sample_ready",
+      "description": "四区块、票根页与时间线页的数字手账模板系统。",
+      "launchTestPriceCny": 9.9,
+      "standardTestPriceCny": 9.9,
+      "estimatedMinutes": 180,
+      "estimatedCostCny": 62.5,
+      "inquiries": 0,
+      "quotes": 0,
+      "orders": 0,
+      "userFeedback": [],
+      "sample": "/products/fan-journal-template/journal-template-contact-sheet.png"
+    }
+  ],
+  "analytics": [],
+  "review": {
+    "weekLabel": "2026-W45",
+    "baseline": true,
+    "latestReportPath": "analytics/weekly-review-2026-W45.md",
+    "observations": "公开研究显示模板和实物周边供给成熟，首月优先验证“回忆整理 + 授权安全 + 透明交付”的数字定制。",
+    "risks": "首批内容尚未发布，没有真实用户反馈；当前任何需求与价格判断都只能视为假设。",
+    "nextSteps": "完成首批 10 篇人工审核；用户明确批准后再逐篇人工发布；按真实数据决定优先产品。"
+  }
+};

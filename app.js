@@ -182,7 +182,7 @@ function showError(error) {
     <div class="error-card">
       <strong>无法读取本地看板数据</strong>
       <p>${escapeHtml(error.message || '未知错误')}</p>
-      <p>请在本机终端运行 <code>node dashboard/server.js</code>，再访问 <code>http://127.0.0.1:4173</code>。</p>
+      <p>请在本机终端运行 <code>node server.js</code>，再访问 <code>http://127.0.0.1:4173</code>。</p>
       <button class="button button-primary" type="button" id="retry-load">重新连接</button>
     </div>`;
   document.getElementById('retry-load')?.addEventListener('click', bootstrap);
@@ -895,9 +895,19 @@ async function handleTaskChange(event) {
 
 async function bootstrap() {
   setConnection('loading');
-  viewRoot.innerHTML = '<div class="loading-card"><span class="loading-orbit"></span><div><strong>正在连接本地看板</strong><p>127.0.0.1:4173 · dashboard/data/dashboard.json</p></div></div>';
+  viewRoot.innerHTML = '<div class="loading-card"><span class="loading-orbit"></span><div><strong>正在连接本地看板</strong><p>127.0.0.1:4173 · data/dashboard.json</p></div></div>';
   if (location.protocol === 'file:') {
-    showError(new Error('浏览器直接打开 HTML 时无法读取本地 JSON。请启动本地 Node 服务后再访问。'));
+    const snapshot = window.STARMEMORY_DASHBOARD_DATA;
+    if (!snapshot) {
+      showError(new Error('未找到只读数据快照。请启动本地 Node 服务后再访问。'));
+      return;
+    }
+    state.data = snapshot;
+    setConnection('offline');
+    connectionText.textContent = '只读快照模式';
+    updateSidebarMeta();
+    renderView();
+    showToast('当前为只读快照；保存与删除操作需启动本地服务。');
     return;
   }
   try {

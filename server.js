@@ -7,11 +7,12 @@ const crypto = require('node:crypto');
 
 const HOST = '127.0.0.1';
 const PORT = Number(process.env.PORT || 4173);
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = __dirname;
 const DASHBOARD_DIR = __dirname;
 const DATA_FILE = process.env.STARMEMORY_DATA_FILE
   ? path.resolve(process.env.STARMEMORY_DATA_FILE)
   : path.join(DASHBOARD_DIR, 'data', 'dashboard.json');
+const SNAPSHOT_FILE = path.join(DASHBOARD_DIR, 'data', 'dashboard-data.js');
 const ANALYTICS_DIR = process.env.STARMEMORY_ANALYTICS_DIR
   ? path.resolve(process.env.STARMEMORY_ANALYTICS_DIR)
   : path.join(ROOT, 'analytics');
@@ -55,7 +56,9 @@ function writeAtomic(file, content) {
 function writeData(data) {
   data.meta = data.meta || {};
   data.meta.updatedAt = new Date().toISOString();
-  writeAtomic(DATA_FILE, JSON.stringify(data, null, 2) + '\n');
+  const json = JSON.stringify(data, null, 2) + '\n';
+  writeAtomic(DATA_FILE, json);
+  writeAtomic(SNAPSHOT_FILE, "'use strict';\nwindow.STARMEMORY_DASHBOARD_DATA = " + json.trim() + ';\n');
 }
 
 function mutateData(mutator) {
@@ -452,6 +455,7 @@ function handleStatic(req, res, pathname) {
   }
   if (pathname === '/style.css') return serveFile(res, path.join(DASHBOARD_DIR, 'style.css'));
   if (pathname === '/app.js') return serveFile(res, path.join(DASHBOARD_DIR, 'app.js'));
+  if (pathname === '/data/dashboard-data.js') return serveFile(res, SNAPSHOT_FILE, 'no-store');
   if (pathname === '/favicon.ico') return serveFile(res, path.join(ROOT, 'config', 'brand', 'avatar.svg'), 'public, max-age=3600');
   if (pathname.startsWith('/content/images/') || pathname.startsWith('/config/brand/') || pathname.startsWith('/products/fan-journal-template/')) {
     const file = path.resolve(ROOT, `.${decodeURIComponent(pathname)}`);
