@@ -260,6 +260,29 @@ async function handleApi(req, res, pathname) {
     return json(res, 200, { ok: true, note: result });
   }
 
+  if (method === 'DELETE' && pathname.startsWith('/api/notes/')) {
+    const id = decodeURIComponent(pathname.split('/').pop());
+    const result = await mutateData(data => {
+      const index = data.notes.findIndex(n => n.id === id);
+      if (index === -1) throw Object.assign(new Error('笔记不存在或已被删除'), { status: 404 });
+      const note = data.notes[index];
+      if (note.status === 'published' || data.analytics.some(record => record.noteId === id)) {
+        throw Object.assign(new Error('已发布或有真实数据的笔记不能删除，以保护运营记录。'), { status: 409 });
+      }
+      const archived = {
+        ...note,
+        originalStatus: note.status,
+        deletedAt: new Date().toISOString(),
+        deletionScope: 'dashboard_only'
+      };
+      data.notesArchive = Array.isArray(data.notesArchive) ? data.notesArchive : [];
+      data.notesArchive.unshift(archived);
+      data.notes.splice(index, 1);
+      return { noteId: id, archived, draftPreserved: Boolean(note.file) };
+    });
+    return json(res, 200, { ok: true, ...result });
+  }
+
   if (method === 'PATCH' && pathname.startsWith('/api/tasks/')) {
     const id = decodeURIComponent(pathname.split('/').pop());
     const body = await readBody(req);
@@ -468,7 +491,3 @@ function shutdown() {
 }
 process.on('SIGINT', shutdown);
 process.on('SIGTERM', shutdown);
-
-
-
-

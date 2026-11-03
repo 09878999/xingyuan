@@ -232,6 +232,32 @@ async function updateNoteStatus(noteId, status) {
   }
 }
 
+async function deleteNote(noteId) {
+  const note = noteById(noteId);
+  if (!note) return;
+  if (note.status === 'published') {
+    showToast('已发布笔记不能删除，以保护真实运营数据。', true);
+    return;
+  }
+  const confirmed = window.confirm(
+    `确认从内容管理删除 ${note.id}《${note.title}》？\n\n` +
+    '此操作只从看板移除内容：\n' +
+    `· ${note.file ? 'Markdown 草稿文件会保留' : '该内容槽没有草稿文件'}\n` +
+    '· 删除记录会写入本地 notesArchive\n' +
+    '· 不会删除或伪造任何发布数据\n\n' +
+    '已发布或有真实数据的笔记会被拒绝删除。'
+  );
+  if (!confirmed) return;
+  try {
+    const result = await api(`/api/notes/${encodeURIComponent(noteId)}`, { method: 'DELETE' });
+    closeModal();
+    showToast(`${noteId} 已从看板删除${result.draftPreserved ? '，草稿文件已保留' : ''}`);
+    await refreshData();
+  } catch (error) {
+    showToast(error.message, true);
+  }
+}
+
 async function openNoteModal(noteId) {
   const note = noteById(noteId);
   if (!note) return;
@@ -251,6 +277,7 @@ async function openNoteModal(noteId) {
       ${note.status === 'approved' ? '<button class="button button-mint button-small" type="button" data-note-status="scheduled">标记为已排期</button>' : ''}
       ${note.status === 'scheduled' ? '<button class="button button-small" type="button" data-note-status="approved">退回待发布</button>' : ''}
       ${note.status === 'published' ? '<button class="button button-small" type="button" data-view-from-modal="analytics">查看数据录入</button>' : ''}
+      ${note.status !== 'published' ? `<button class="button button-danger button-small" type="button" data-delete-note="${escapeAttr(note.id)}">删除内容</button>` : ''}
     </div>
   `);
   const contentHost = document.getElementById('draft-content');
@@ -269,6 +296,7 @@ async function openNoteModal(noteId) {
   modalBody.querySelectorAll('[data-note-status]').forEach(button => {
     button.addEventListener('click', () => updateNoteStatus(note.id, button.dataset.noteStatus));
   });
+  modalBody.querySelector('[data-delete-note]')?.addEventListener('click', () => deleteNote(note.id));
   modalBody.querySelector('[data-view-from-modal="analytics"]')?.addEventListener('click', () => { closeModal(); setView('analytics'); });
 }
 
@@ -495,7 +523,7 @@ function notesGridHtml(notes) {
         <div class="note-topline"><span class="note-id">${escapeHtml(note.id)}</span><span class="note-date">${escapeHtml(formatDate(note.plannedDate, true))}</span></div>
         <h3 class="note-title">${escapeHtml(note.title)}</h3>
         <div class="note-product">${escapeHtml(productLabel(note.productId))}</div>
-        <div class="note-footer"><span class="muted" style="font-size:9px">${escapeHtml(note.pillar || '')}</span><span class="note-arrow">↗</span></div>
+        <div class="note-footer"><span class="muted" style="font-size:9px">${escapeHtml(note.pillar || '')}</span><span class="note-footer-actions">${note.status !== 'published' ? `<button class="note-delete" type="button" data-note-delete="${escapeAttr(note.id)}" aria-label="删除 ${escapeAttr(note.id)}">删除</button>` : ''}<span class="note-arrow">↗</span></span></div>
       </div>
     </article>`;
   }).join('');
@@ -827,6 +855,13 @@ function handleViewClick(event) {
       .catch(error => showToast(error.message, true));
     return;
   }
+  const deleteNoteButton = event.target.closest('[data-note-delete]');
+  if (deleteNoteButton) {
+    event.preventDefault();
+    event.stopPropagation();
+    deleteNote(deleteNoteButton.dataset.noteDelete);
+    return;
+  }
   const noteCard = event.target.closest('[data-note-id]');
   if (noteCard && !event.target.closest('a, button')) openNoteModal(noteCard.dataset.noteId);
 }
@@ -888,7 +923,3 @@ viewRoot.addEventListener('keydown', handleViewKeydown);
 viewRoot.addEventListener('change', handleTaskChange);
 
 bootstrap();
-
-
-
-
