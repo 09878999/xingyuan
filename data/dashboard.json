@@ -2,24 +2,25 @@
   "meta": {
     "project": "StarMemory / 星念 Studio",
     "version": "1.0.0",
-    "updatedAt": "2026-11-02T17:23:54.027Z",
+    "updatedAt": "2026-11-03T05:49:49.617Z",
     "dataPolicy": "只保存真实本地数据；未发生的数据为0，缺失数据为空。禁止伪造发布、互动、咨询和订单。"
   },
   "notes": [
     {
       "id": "N01",
       "title": "我把演唱会那晚，做成了一张海报",
-      "plannedDate": "2026-11-04",
-      "status": "review_pending",
+      "plannedDate": "2026-11-03",
+      "status": "approved",
       "productId": "concert-collage",
       "pillar": "记忆整理 / 产品样稿",
-      "coverUrl": "/content/images/poster-02-concert-collage.png",
+      "coverUrl": "/content/covers/01-concert-night-card/cover.png",
       "file": "content/drafts/01-concert-night-card.md",
       "titleOptions": [
         "我把演唱会那晚，做成了一张海报",
         "散场后，照片不该只躺在相册里",
         "一张海报，怎么装下整场演唱会"
-      ]
+      ],
+      "statusChangedAt": "2026-11-03T05:49:49.617Z"
     },
     {
       "id": "N02",
