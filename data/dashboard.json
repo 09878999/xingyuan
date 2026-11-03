@@ -2,7 +2,7 @@
   "meta": {
     "project": "StarMemory / 星念 Studio",
     "version": "1.0.0",
-    "updatedAt": "2026-11-03T05:49:49.617Z",
+    "updatedAt": "2026-11-03T06:02:47.099Z",
     "dataPolicy": "只保存真实本地数据；未发生的数据为0，缺失数据为空。禁止伪造发布、互动、咨询和订单。"
   },
   "notes": [
@@ -116,7 +116,7 @@
       "id": "N08",
       "title": "9张演唱会照片，怎么拼才不挤",
       "plannedDate": "2026-11-13",
-      "status": "review_pending",
+      "status": "approved",
       "productId": "concert-collage",
       "pillar": "教程 / 风格对比",
       "coverUrl": "/content/images/poster-02-concert-collage.png",
@@ -125,7 +125,8 @@
         "9张演唱会照片，怎么拼才不挤",
         "照片太多？先选1张主角",
         "不露脸的演唱会拼贴怎么做"
-      ]
+      ],
+      "statusChangedAt": "2026-11-03T06:02:47.099Z"
     },
     {
       "id": "N09",
@@ -334,7 +335,8 @@
       "owner": "账号负责人",
       "due": "2026-11-04",
       "priority": "high",
-      "status": "todo"
+      "status": "todo",
+      "completedAt": null
     },
     {
       "id": "T04",
